@@ -1,0 +1,21 @@
+data;
+A1= PROBNORM£¨0.5£©;
+A2= PROBNORM£¨0.0£©;
+A3= PROBNORM£¨-0.5£©;
+A4= PROBNORM£¨3.0£©;
+RUN;
+DATA;
+P=1-PROBF(30,5,20);
+PUT P=;
+RUN;
+DATA;
+P=£¨1-PROBT(abs£¨-2.5£©,5)*2;
+PUT P=;
+RUN;
+
+
+
+
+
+
+

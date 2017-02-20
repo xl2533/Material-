@@ -1,0 +1,11 @@
+options nodate nonotes nosource;
+data rv;
+retain _seed_ 0;
+do _i_ = 1 to 100;
+exp = ranexp(_seed_)/6; 
+output;
+end;
+drop _seed_ _i_;
+run;
+proc print;
+run;

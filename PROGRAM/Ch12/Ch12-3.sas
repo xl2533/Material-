@@ -1,0 +1,29 @@
+data ch1203;
+input a $ x @@;
+cards;
+1 22.9	1 22.3	1 22.2	1 22.5	1 22.7
+2 24.0	2 23.8	2 23.8	2 23.6	2 23.6
+3 22.6	3 23.2	3 23.4	3 23.4	3 23.0
+4 20.5	4 20.8	4 20.7	4 20.8	4 20.5
+5 24.6	5 24.6	5 24.4	5 24.4	5 24.4
+6 24.0	6 23.3	6 23.7	6 23.5	6 23.7
+;
+run;
+PROC SORT;
+BY a;
+RUN;
+PROC UNIVARIATE NORMAL;
+VAR x;
+by a;
+RUN;
+PROC ANOVA;
+CLASS a;
+MODEL x=a;
+MEANS a /SNK;
+RUN;
+
+
+
+
+
+

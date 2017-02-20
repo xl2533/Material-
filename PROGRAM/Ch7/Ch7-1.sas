@@ -1,0 +1,21 @@
+DATA ch701;
+INPUT A B @@;
+CARDS;
+1  2   2  1  .  2   .  .   1  1   2  1
+;
+run;
+PROC FREQ ;
+TABLES A*B;
+TITLE  '2-WAY CONTINGENCY   TABLE';
+PROC   FREQ   ORDER=DATA;
+TABLES A*B /LIST;
+TITLE   '2-WAY FREQUENCY TABLE, ORDER=DATA';
+run;
+
+
+
+
+
+
+
+

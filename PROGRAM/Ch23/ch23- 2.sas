@@ -1,0 +1,18 @@
+proc iml;
+title 'Test of NLPTR subroutine: Gradient Specified';
+start F_ROSEN(x);
+y1 = 10. * (x[2] - x[1] * x[1]);
+y2 = 1. - x[1];
+f = .5 * (y1 * y1 + y2 * y2);
+return(f);
+finish F_ROSEN;
+start G_ROSEN(x);
+g = j(1,2,0.);
+g[1] = -200.*x[1]*(x[2]-x[1]*x[1]) - (1.-x[1]);
+g[2] = 100.*(x[2]-x[1]*x[1]);
+return(g);
+finish G_ROSEN;
+x = {-1.2 1.};
+optn = {0 2};
+call nlptr(rc,xres,"F_ROSEN",x,optn) grd="G_ROSEN";
+quit;

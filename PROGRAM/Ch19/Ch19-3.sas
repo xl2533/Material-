@@ -1,0 +1,18 @@
+proc IML ;
+R={1.00 0.30 0.30,0.30 1.00 0.30,0.30 0.30 1.00};  
+S={1 0 0 ,0 2 0 ,0 0 3};
+E=S*R*S; 
+u={0,10,20} ;  
+do i=1 to 1000;
+z1=RANNOR(0);
+z2=RANNOR(0);
+z3=RANNOR(0);
+C=root(E);
+xi=t(C)*(z1//z2//z3)+u;
+m=m//t(xi);
+end;
+create example4 var{x y z}; 
+append from m;
+run;
+proc print;
+run;

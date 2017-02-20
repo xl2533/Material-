@@ -1,0 +1,31 @@
+DATA  ch708;
+INPUT  y @@;
+CARDS;
+177  215  197  97  123  159 L 194  227  141  169  124  159
+;
+RUN;
+PROC  SUMMARY PRINT;
+VAR  y;
+RUN;
+PROC  SUMMARY;
+VAR  y;
+OUTPUT  OUT=stat  MEAN=ymean  STD=ystd  CV=ycv;
+PROC  PRINT  DATA=stat;
+RUN;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
